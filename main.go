@@ -16,7 +16,7 @@ import (
 	"syscall"
 )
 func main() {
-	dg, err := discordgo.New("Bot " + "OTI3NTk1MzAyNjExOTkyNTc2.YdMgcg.bQeGaPEQSwbwvN17ujI51Q4_Hxc")
+	dg, err := discordgo.New("Bot " + "")
 	if err != nil {
 		fmt.Println("error created while making a bot")
 		return
