@@ -23,7 +23,7 @@ func main() {
 	}
 	dg.AddHandler(compile)
 	dg.AddHandler(ping)
-
+	dg.AddHandler(help)
 	err = dg.Open()
 	if err != nil {
 		fmt.Println("Error created while opening the bot", err)
@@ -43,6 +43,18 @@ func ping(s *discordgo.Session, m *discordgo.MessageCreate) {
 				log.Fatalf("Error sending message", err)
 			}
 		}
+	}
+}
+func help(s *discordgo.Session, m *discordgo.MessageCreate) {
+	if m.Content == ">help" {
+	_, err := s.ChannelMessageSendEmbed(m.ChannelID, functions.EmbedCreate("Help", "**>compile** ```\npackage main\n\nimport (\n    \"fmt\"\n)\n\nfunc main() {\n    fmt.Print(\"Hello, world!\")\n}```\n---------\n**>ping**", "https://i.imgur.com/NldSwaZ.png"))
+	if err != nil {
+		log.Fatalf("Error sending message", err)
+	}}
+}
+func coinflip(s *discordgo.Session, m *discordgo.MessageCreate) {
+	if m.Content == ">coinflip" || m.Content == ">cf" {
+		
 	}
 }
 func compile(s *discordgo.Session, m *discordgo.MessageCreate) {
